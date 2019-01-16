@@ -4,10 +4,10 @@
 #
 version: 2
 jobs:
-  build:
+  test_node_8:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:8
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -36,7 +36,31 @@ jobs:
       # run tests!
       - run: yarn test
 
-      # run build!
-      - run: yarn build
+  release:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
 
+        # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: yarn install
+      - run: yarn build
+      # Run optional required steps before releasing
+      # - run: npm run build-script
+      - run: npx semantic-release
+
+workflows:
+  version: 2
+  test_and_release:
+    jobs:
+      - test_node_8
+      - release:
+          requires:
+            - test_node_8
 
