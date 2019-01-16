@@ -1,2 +1,9 @@
 ## teof lib
-1. deepclone
+
+## feature
+### complete
+- [x] deepclone
+
+### todo
+- [] promise
+- [] fetch
