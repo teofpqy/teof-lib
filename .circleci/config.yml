@@ -37,6 +37,6 @@ jobs:
       - run: yarn test
 
       # run build!
-      - run: build
+      - run: yarn build
 
 
