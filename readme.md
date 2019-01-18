@@ -6,7 +6,10 @@
 
 ### todo
 - [] promise
+- [] co
 - [] fetch
+- [] react likely UI library
+- [] redux
 
 ## commit format
 ```javascript {.line-numbers}

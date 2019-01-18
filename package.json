@@ -8,7 +8,8 @@
   "scripts": {
     "test": "jest",
     "build": "rollup -c rollup.config.js",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "test:promise": "jest src/promise/"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
