@@ -13,6 +13,24 @@ const obj1 = {
 
 const _toString = (obj) => Object.prototype.toString.call(obj);
 
+describe('value clone', () => {
+  test('number clone', () => {
+    expect(deepClone(1)).toBe(1);
+  });
+
+  test('string clone', () => {
+    expect(deepClone('1234')).toBe('1234');
+  });
+
+  test('null clone', () => {
+    expect(deepClone(null)).toBe(null);
+  })
+
+  test('undefined clone', () => {
+    expect(deepClone(undefined)).toBe(undefined);
+  })
+})
+
 describe('array deep clone ', () => {
   const cloneArr = deepClone(arr1);
   test('is value equal', () => {
